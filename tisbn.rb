@@ -5,6 +5,11 @@ require_relative "isbn.rb"
 
 class Test_isbn < Minitest::Test
 
+def test_math
+  data = "032114653"
+  assert_equal("0321146530", math(data))
+end
+
 #################################################################
   def test_length_fail
     l = "0123456789"
@@ -19,14 +24,23 @@ class Test_isbn < Minitest::Test
   def test_remove_dashes
     data = "0-321-14653-0"
     goal = "0321146530"
-    assert_equal(goal, remove_spaces(data))
+    assert_equal(goal, remove_dashes(data))
   end
 
   def test_rm_spaces
     isbn = "0 321 14653 0"
     goal = "0321146530"
-    assert_equal(goal, remove_dashes(isbn))
+    assert_equal(goal, remove_spaces(isbn))
   end
 ################################################################
-  #def test_
+  def test_match_valid
+    isbn = "0321146430"
+    assert_equal(true, match_valid(isbn))
+  end
+
+  def test_match_valid_10
+    isbn = "032114643x"
+    assert_equal(true, match_valid_10(isbn))
+  end
+################################################################
 end
