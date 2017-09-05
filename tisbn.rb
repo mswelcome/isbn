@@ -1,14 +1,31 @@
-#Testing ISBN Application
+#Testing ISBN13 Application
 
 require "minitest/autorun"
 require_relative "isbn.rb"
 
 class Test_isbn < Minitest::Test
 
-def test_math
-  data = "032114653"
-  assert_equal("0321146530", math(data))
-end
+  def test_harmony2
+    data = "877195869x"
+    assert_equal("877195869x", harmony(data))
+  end
+
+  def test_harmony1
+    data = "0321146530"
+    assert_equal("0321146530", harmony(data))
+
+  end
+
+##################################################################
+  def test_math_x
+    data = "877195869x"
+    assert_equal("877195869x", math(data))
+  end
+
+  def test_math
+    data = "0321146530"
+    assert_equal("0321146530", math(data))
+  end
 
 #################################################################
   def test_length_fail

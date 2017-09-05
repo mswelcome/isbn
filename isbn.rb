@@ -1,7 +1,19 @@
 #ISBN10 Application
 
+def harmony(data)
+
+  if isbn_length(data) != 10
+    puts "Not an ISBN10 number!"
+  else
+    match_valid(data)
+    match_valid_10(data)
+    math(data)
+  end
+end
+###############################################################
 def math(data)
-  s = data.split(//)
+  pop = data.chop
+  s = pop.split(//)
   int = []
 
   s.each do |i|
@@ -22,10 +34,10 @@ def math(data)
 
   isbn = ""
 
-  isbn << data
+  isbn << pop
 
   if checksum == 10
-    checksum = x
+    checksum = "x"
     isbn << checksum
   else
     isbn << checksum.to_s
@@ -37,8 +49,8 @@ end
 
 ##############################################################
 def match_valid_10(isbn)
-  isbn = "032114653x"
-  isbn.match?(/[0-9xX'-' ]/,9)
+
+  isbn.match?(/[0-9xX]/,9)
 
 end
 
