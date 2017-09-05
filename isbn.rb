@@ -2,12 +2,10 @@
 
 def harmony(data)
 
-  if isbn_length(data) != 10
+  if isbn_length(remove_spaces_dashes(data)) != 10 || match_valid(data) == false || match_valid_10(data) == false
     puts "Not an ISBN10 number!"
   else
-    match_valid(data)
-    match_valid_10(data)
-    math(data)
+    math(remove_spaces_dashes(data))
   end
 end
 ###############################################################
@@ -61,19 +59,9 @@ def match_valid(isbn)
 
 end
 ##############################################################
-def remove_spaces(isbn)
-  # loop though elements of string - if item is ' ' or - ... remove
-
-  isbn.delete(" ")
-
+def remove_spaces_dashes(data)
+  data.gsub(/[- ]/, '')
 end
-
-def remove_dashes(isbn)
-
-  isbn.delete("-")
-
-end
-
 #############################################################
 def isbn_length(l)
 

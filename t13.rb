@@ -5,10 +5,18 @@ require_relative "isbn13.rb"
 
 class Test_isbn < Minitest::Test
 
+  def test_harmony
+    data = "978-0-13-149505-0"
+    goal = "9780131495050"
+    assert_equal(goal, harmony(data))
+  end
+
+###############################################################
 def test_math_13
   data = "9780470059029"
   goal = "9780470059029"
   assert_equal(goal, math_13(data))
+end
 
 #################################################################
 def test_match_valid_characters_13_dashes
@@ -29,13 +37,13 @@ end
   def test_remove_dashes
     data = "978-0-13-149505-0"
     goal = "9780131495050"
-    assert_equal(goal, remove_dashes(data))
+    assert_equal(goal, remove_spaces_dashes(data))
   end
 
   def test_rm_spaces
-    isbn = "978 0 471 48648 0"
+    data = "978 0 471 48648 0"
     goal = "9780471486480"
-    assert_equal(goal, remove_spaces(isbn))
+    assert_equal(goal, remove_spaces_dashes(data))
   end
 #################################################################
   def test_length_1

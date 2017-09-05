@@ -41,13 +41,13 @@ class Test_isbn < Minitest::Test
   def test_remove_dashes
     data = "0-321-14653-0"
     goal = "0321146530"
-    assert_equal(goal, remove_dashes(data))
+    assert_equal(goal, remove_spaces_dashes(data))
   end
 
   def test_rm_spaces
-    isbn = "0 321 14653 0"
+    data = "0 321 14653 0"
     goal = "0321146530"
-    assert_equal(goal, remove_spaces(isbn))
+    assert_equal(goal, remove_spaces_dashes(data))
   end
 ################################################################
   def test_match_valid
