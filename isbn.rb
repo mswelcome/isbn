@@ -3,10 +3,6 @@
 require 'csv'
 
 
-
-
-
-
 def harmony(data)
 
   if isbn_length(remove_spaces_dashes(data)) != 10 || match_valid(data) == false || match_valid_10(data) == false
@@ -91,22 +87,31 @@ end
 
 yay = "valid"
 boo = "invalid"
-v = []
-i = []
+csv_arya = []
+
 counter = 0
 
 arya = CSV.read('input_isbn_file.csv')
 
 arya.each do |row|
     if harmony(row[1])  == "valid"
-    v << row
-    v[counter] << yay
-  else harmony(row[1]) == "invalid"
-    i << row
-    i[counter] << boo
-  end
-  counter += 1
+    csv_arya << row
+    csv_arya[counter] << yay
+    else harmony(row[1]) == "invalid"
+    csv_arya << row
+    csv_arya[counter] << boo
+    end
+    counter+=1
 end
 
-puts "#{v}"
-puts "#{i}"
+CSV.open('results.csv', 'wb') do |csv|
+
+    csv << [csv_arya]
+
+  
+end
+
+
+
+
+puts "#{csv_arya}"
