@@ -34,7 +34,7 @@ end
 def match_valid_characters_13(data)
   arya = data.split(//)
   valid = true
-  arya[0..-2].each {|char| valid = false if char.match?(/[0-9- ]/) == false}
+  arya.each {|char| valid = false if char.match?(/[0-9\- ]/) == false}
   valid
 end
 ##############################################################
