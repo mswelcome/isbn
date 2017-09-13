@@ -52,9 +52,7 @@ post '/qwerty' do                      #
     write_fun_with_ csv(session[:res])
   end
 session[:csv_arya] = fun_with_csv
-p "#{session[:csv_arya]} App RB"
 write_fun_with_csv(session[:csv_arya])
-p "#{session[:res]} QWERTY"
   redirect '/results'
 
 end

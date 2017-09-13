@@ -31,7 +31,6 @@ def write_fun_with_csv(csv_arya)
   CSV.open('mswresults.csv', 'wb') do |csv|
     csv << ["Item ", "ISBN ", "Validation " ]
     csv << csv_arya
-    
   end
 end
 
