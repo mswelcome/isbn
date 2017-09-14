@@ -25,13 +25,24 @@ def fun_with_csv()
     counter+=1
     end
   csv_arya
+
 end
 
 def write_fun_with_csv(csv_arya)
-  CSV.open('mswresults.csv', 'wb') do |csv|
-    csv << ["Item ", "ISBN ", "Validation " ]
-    csv << csv_arya
+  CSV.open('mswresults.csv', 'wb', headers: true) do |csv|
+    csv << ["Item", "ISBN", "Validation"]
+    csv_arya.each do |grrr|
+      csv << grrr
+    end
+
   end
 end
+
+def append_fun_with_csv(res)
+  CSV.open('mswresults.csv', 'a') do |csv|
+    csv << res
+  end
+end
+
 
 write_fun_with_csv(fun_with_csv())
