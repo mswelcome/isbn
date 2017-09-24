@@ -22,7 +22,7 @@ post '/qwerty' do                      #
   isbn = params[:isbn]               # ISBN: individuaULS (valid invalid)
   session[:res] = []                   # session results
 
-  dl_s3()
+  #dl_s3()
 
   session[:csv_arya] = fun_with_csv
   write_fun_with_csv(session[:csv_arya])
@@ -58,7 +58,7 @@ post '/qwerty' do                      #
     append_fun_with_csv(session[:res])
   end
 
-connect_to_s3()
+#connect_to_s3()
 
   redirect '/results'
 

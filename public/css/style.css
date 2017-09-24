@@ -15,6 +15,8 @@
 	background-image: url(/images/aizen_sama_by_vinhfx.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
+	width: 100%;
+	height: auto;
 
 }
 
@@ -26,10 +28,16 @@
 	border-bottom-style: double;
 }
 
-body {
+.bf {
 	font-size: 100%;
+
 }
 
-.isbn {
+.font {
 	font-size: 2.0em;
+}
+
+.footer_position {
+	bottom: 10%;
+
 }
