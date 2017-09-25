@@ -9,7 +9,7 @@ require_relative 'isbn13.rb'
 require_relative 'fun_with_csv.rb'
 require_relative 's3.rb'
 require_relative 'dls3.rb'
-load './local_env.rb'
+load './local_env.rb' if File.exist?('./local_env.rb')
 enable :sessions
 
 get '/' do
