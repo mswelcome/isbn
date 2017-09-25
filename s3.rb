@@ -1,5 +1,5 @@
-require 'aws-sdk'
-load './local_env.rb'
+#require 'aws-sdk'
+#load './local_env.rb'
 
 def connect_to_s3()
   s3 = Aws::S3::Resource.new(region: 'us-east-2')
